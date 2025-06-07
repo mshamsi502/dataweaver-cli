@@ -1,4 +1,6 @@
 # DataWeaver CLI
+![DataWeaver CLI Cover](./assets/dataveaver-cli-cover.jpg)
+
 
 A simple and powerful CLI tool for database operations.
 
@@ -15,6 +17,65 @@ DataWeaver CLI is a self-contained, cross-platform command-line tool designed to
 - **Interactive Menu**: A user-friendly menu for guided operations, making it easy for anyone to use without memorizing commands.
 - **Configuration-Driven**: Manages all settings like connection strings and paths in a simple `config.yaml` file.
 - **Portable**: Designed to keep its dependencies in a local project folder, avoiding the need for system-wide installations.
+
+## 📁 Project Structure
+```
+dataweaver-cli/
+│
+├── .github/
+│   └── assets/              # For repository-specific assets like images.
+│
+├── .vscode/                 # VS Code editor-specific settings (usually gitignored).
+│
+├── backups/                 # Default directory for storing backup archives.
+│   └── backup-*.gz
+│
+├── cmd/                     # Source code for all CLI commands.
+│   ├── root.go              # Defines the root command and the interactive menu.
+│   ├── backup.go            # Defines the parent 'backup' command.
+│   ├── backup_mongo.go      # Defines the 'backup mongo' subcommand.
+│   ├── configure.go         # Defines the 'configure' command and its subcommands.
+│   ├── download-tools.go    # Defines the 'download-tools' command.
+│   ├── restore.go           # Defines the parent 'restore' command.
+│   └── restore_mongo.go     # Defines the 'restore mongo' subcommand.
+│
+├── downloads/               # Stores temporary downloaded files (e.g., .zip archives).
+│   └── mongodb-database-tools-windows-x86_64-100.12.2.zip
+│
+├── internal/                # Private application packages (not for external use).
+│   ├── config/
+│   │   └── config.go
+│   ├── downloader/
+│   └── mongodb/
+│
+├── scripts/
+│   └── install_tools.ps1    # PowerShell script for automated installation on Windows.
+│
+├── tools/                   # Location for extracted/installed tools for portable use.
+│   └── mongodb-database-tools-windows-x86_64-100.12.2/
+│       ├── bin/
+│       │   ├── mongodump.exe
+│       │   └── mongorestore.exe
+│       │   └── (and other tools)...
+│       ├── THIRD-PARTY-NOTICES
+│       └── LICENSE.md
+│
+├── .gitignore               # Specifies intentionally untracked files to ignore.
+├── dataweaver-cli.exe       # Compiled application binary.
+├── go.mod                   # Go module definition file.
+├── go.sum                   # Dependency checksums.
+├── LICENSE                  # Your project's software license.
+├── main.go                  # Main application entry point.
+└── README.md                # The project's documentation file.
+```
+
+### Directory Explanations:
+- ```.github/```: Contains GitHub-specific files, such as workflow definitions for CI/CD or issue templates. The ```assets``` subfolder is a good place to store images for the ```README```.
+- ```cmd/```: Contains the main application code for all your CLI commands. Following the standard Go project layout, each command can have its own file for better organization.
+- ```internal/```: This directory holds the core logic of your application that is not meant to be imported by other projects. This includes packages for configuration management, database-specific logic, etc.
+- ```scripts/```: Includes helper scripts used by the project. In this case, it holds the PowerShell script responsible for automating the installation of MongoDB Tools on Windows.
+- ```backups/```, ```downloads/```, ```tools/```: These directories are created by the application at runtime to store backups, downloaded files, and the extracted tools, respectively. They should typically be added to your ```.gitignore``` file.
+
 
 ## 🚀 Getting Started
 
