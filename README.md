@@ -1,5 +1,5 @@
 # DataWeaver CLI
-![DataWeaver CLI Cover](./assets/dataveaver-cli-cover.jpg)
+![DataWeaver CLI Cover](./.guthub/assets/dataveaver-cli-cover.jpg)
 
 
 A simple and powerful CLI tool for database operations.
