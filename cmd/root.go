@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"dataweaver-cli/internal/config" // مسیر پکیج کانفیگ
+	"github.com/mshamsi502/dataweaver-cli/internal/config" // مسیر پکیج کانفیگ
 
 	"github.com/AlecAivazis/survey/v2"
 	"github.com/spf13/cobra"
