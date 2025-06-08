@@ -1,4 +1,4 @@
-module dataweaver-cli
+module github.com/mshamsi502/dataweaver-cli
 
 go 1.24.2
 
