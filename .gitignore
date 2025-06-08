@@ -1,3 +1,38 @@
-/.vscode/*
-/backups/*
+# ==================================
+#      DataWeaver CLI .gitignore
+# ==================================
+
+# === IDE/Editor Directories ===
+# Prevents committing local editor settings
+.vscode/
+.idea/
+
+# === Binaries and Build Output ===
+# The main application binary should not be in Git.
+# These files should be distributed via GitHub Releases.
+dataweaver-cli
+dataweaver-cli.exe
+builds/
+dist/
+
+# === Application-Generated Directories ===
+# These directories are created by the app's commands and should not be in source control.
+/backups/
+/downloads/
+/tools/
+
+# === Log Files ===
+# Ignore all log files
+*.log
 msi_install_log.txt
+
+# === Local Configuration Files ===
+# To avoid committing personal developer configs
+config.yaml
+*.env
+
+# === System Files ===
+# macOS folder attributes
+.DS_Store
+# Windows thumbnail cache
+Thumbs.db
